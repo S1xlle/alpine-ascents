@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;700&family=Poppins:wght@400;500;600&display=swap');
+
+:root {
+  --deep-navy: #102542;
+  --forest-green: #2D5A4B;
+  --summit-orange: #E67E22;
+  --snow-white: #F8F9FA;
+  --stone-gray: #7D8597;
+  --charcoal: #1B1B1B;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  background-color: var(--snow-white);
+  color: var(--charcoal);
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+/* الهيدر الشفاف الفخم فوق الجبل */
+.custom-navbar {
+  background-color: rgba(16, 37, 66, 0.3) !important;
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.brand-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+/* تأثير زر الـ Menu عند تمرير الماوس */
+.custom-menu-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  color: var(--summit-orange) !important;
+  border-color: var(--summit-orange) !important;
+}
+
+/* تأثير حركي خفيف لعناصر القائمة المنسدلة */
+.dropdown-item {
+  transition: all 0.2s ease-in-out;
+}
+.dropdown-item:hover {
+  background-color: var(--forest-green) !important;
+  color: var(--snow-white) !important;
+  padding-left: 20px; /* حركة انزلاق بسيطة تعطي فخامة */
+}
+
+/* اللون البرتقالي للعنصر المختار داخل المنيو المنسدل */
+.active-dropdown-link {
+  color: var(--summit-orange) !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  font-weight: 600;
+}
+
+.visitor-badge {
+  background-color: var(--forest-green);
+}
+.badge-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  color: var(--snow-white);
+}
+.badge-number {
+  color: var(--summit-orange);
+}
+
+.custom-hero-btn:hover {
+  background-color: var(--summit-orange) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(230, 126, 34, 0.4) !important;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
