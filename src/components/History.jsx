@@ -1,64 +1,79 @@
-import React from 'react';
+import { useEffect } from "react";
+import "./History.css";
+
+const history = [
+  {
+    year: "Ancient",
+    title: "Sacred Ascents",
+    text: "Ancient mountain ascents were often connected to religion and spiritual beliefs.",
+  },
+  {
+    year: "18th Century",
+    title: "Modern Mountaineering",
+    text: "Modern mountaineering began to develop in Europe during the 18th century.",
+  },
+  {
+    year: "1786",
+    title: "Mont Blanc",
+    text: "The ascent of Mont Blanc became one of the greatest milestones in climbing history.",
+  },
+  {
+    year: "1854–1865",
+    title: "Golden Age",
+    text: "The Golden Age of Alpinism marked a legendary era of first ascents.",
+  },
+  {
+    year: "Worldwide",
+    title: "Global Expansion",
+    text: "Mountaineering later spread worldwide across the Himalayas, Andes, and beyond.",
+  },
+];
 
 function History() {
+  useEffect(() => {
+    const elements = document.querySelectorAll(".history-point, .history-path");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("show");
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section 
-      id="history" 
-      className="py-5 text-white" 
-      style={{ backgroundColor: 'var(--deep-navy)', fontFamily: 'Manrope' }}
-    >
-      <div className="container py-4">
-        
-        {/* عنوان القسم */}
-        <div className="text-center mb-5">
-          <h2 className="display-4 fw-bold" style={{ color: 'var(--summit-orange)', letterSpacing: '1px' }}>
-            THE HISTORY OF MOUNTAINEERING
-          </h2>
-          <div className="mx-auto mt-2" style={{ width: '80px', height: '3px', backgroundColor: 'var(--forest-green)' }}></div>
-        </div>
+    <section className="history-section" id="history">
+      <div className="history-title">
+        <p>The Ascent Through Time</p>
+        <h2>History of Mountaineering</h2>
+        <span>From sacred peaks to global expeditions.</span>
+      </div>
 
-        {/* محتوى التاريخ المقسم بشكل احترافي */}
-        <div className="row g-4 align-items-center">
-          <div className="col-lg-6">
-            <h3 className="h2 mb-3 text-white" style={{ fontFamily: 'Bebas Neue', letterSpacing: '1px' }}>
-              How It All Began
-            </h3>
-            <p className="lead fs-6" style={{ color: 'var(--snow-white)', opacity: '0.9', lineHeight: '1.8' }}>
-              Mountaineering as a sport was born in **1786** with the historic first ascent of **Mont Blanc** by Jacques Balmat and Michel-Gabriel Paccard. This monumental achievement sparked a global fascination with conquering the world's highest peaks.
-            </p>
-            <p className="fs-6" style={{ color: 'var(--stone-gray)', lineHeight: '1.8' }}>
-              The craft evolved dramatically during the "Golden Age of Mountaineering" (1854–1865), where many major Alpine peaks saw their first ascents, establishing technical climbing as a recognized and structured sport worldwide.
-            </p>
-          </div>
+      <div className="mountain-story">
+        <div className="big-mountain"></div>
 
-          <div className="col-lg-6">
-            {/* بطاقة مميزة تلخص أهم فترات التاريخ */}
-            <div className="p-4 rounded-4 shadow" style={{ backgroundColor: 'rgba(255, 255, 255, 0.05)', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
-              <h4 className="fw-bold mb-3" style={{ color: 'var(--summit-orange)' }}>Key Historical Eras</h4>
-              <ul className="list-unstyled d-flex flex-column gap-3 m-0">
-                <li className="d-flex align-items-start gap-2">
-                  <span style={{ color: 'var(--summit-orange)' }}>⚡</span>
-                  <div>
-                    <strong>1786:</strong> The Birth of Mountaineering (Mont Blanc Ascent).
-                  </div>
-                </li>
-                <li className="d-flex align-items-start gap-2">
-                  <span style={{ color: 'var(--summit-orange)' }}>⚡</span>
-                  <div>
-                    <strong>1854 - 1865:</strong> The Golden Age of Alpine exploration and technique refinement.
-                  </div>
-                </li>
-                <li className="d-flex align-items-start gap-2">
-                  <span style={{ color: 'var(--summit-orange)' }}>⚡</span>
-                  <div>
-                    <strong>1953:</strong> The Historic Conquest of **Mount Everest** by Sir Edmund Hillary and Tenzing Norgay.
-                  </div>
-                </li>
-              </ul>
+        <svg className="history-path" viewBox="0 0 500 700">
+          <path
+            d="M245 650 C120 560 390 505 250 430 C120 360 380 315 250 250 C145 190 330 145 250 75"
+            fill="none"
+          />
+        </svg>
+
+        {history.map((item, index) => (
+          <div className={`history-point point-${index + 1}`} key={item.title}>
+            <div className="dot"></div>
+            <div className="history-text">
+              <span>{item.year}</span>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
             </div>
           </div>
-        </div>
-
+        ))}
       </div>
     </section>
   );

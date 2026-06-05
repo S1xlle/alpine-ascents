@@ -2,7 +2,9 @@ import React from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import History from './components/History'; // استدعاء قسم التاريخ الجديد
-import Gear from './components/Gear';
+import Types from './components/Types';
+import Pack from './components/Pack';
+
 
 function App() {
   return (
@@ -10,7 +12,8 @@ function App() {
       <Header />
       <Hero />
       <History /> {/* إضافة قسم التاريخ هنا */}
-      <Gear />
+      <Types />
+      <Pack />
       {/* الأقسام الباقية بنضيفها تحتها بالترتيب حبة حبة */}
     </div>
   );
