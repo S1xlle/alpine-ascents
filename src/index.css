@@ -83,3 +83,14 @@ h1, h2, h3 {
 .animate-fade-in {
   animation: fadeIn 0.8s ease-out forwards;
 }
+
+.header-book-btn {
+  background: #e67e22;
+  color: #102542;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-weight: 800;
+  margin-right: 12px;
+  cursor: pointer;
+}

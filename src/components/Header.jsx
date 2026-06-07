@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import logoImg from '../assets/logo.jpg';
+import Booking from './Booking';
 
 function Header() {
   const [activeMenu, setActiveMenu] = useState('Home');
+  const [showBooking, setShowBooking] = useState(false);
+  
 
   const [visitorCount, setVisitorCount] = useState(() => {
     const savedCount = localStorage.getItem('visitor_count');
@@ -28,6 +31,7 @@ function Header() {
   ];
 
   return (
+  <>
     <nav className="navbar navbar-expand fixed-top custom-navbar py-2 animate-fade-in">
       <div className="container-fluid">
         
@@ -67,14 +71,27 @@ function Header() {
         </div>
 
         {/* عداد الزوار على اليمين */}
+        <button
+              className="header-book-btn"
+              onClick={() => setShowBooking(true)}
+             >
+             BOOK
+        </button>
+
         <div className="d-flex align-items-center px-3 py-1 rounded-pill visitor-badge">
           <span className="badge-text">👤 VISITORS:</span>
           <span className="fw-bold badge-number">{visitorCount}</span>
         </div>
 
-      </div>
+     </div>
     </nav>
-  );
+
+    <Booking
+      isOpen={showBooking}
+      onClose={() => setShowBooking(false)}
+    />
+  </>
+);
 }
 
 export default Header;
