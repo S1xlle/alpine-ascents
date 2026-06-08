@@ -5,12 +5,8 @@ import History from './components/History';
 import Types from './components/Types';
 import Pack from './components/Pack';
 import Shelter from './components/Shelter';
-
-// استدعاء الملف الأساسي (البوصلة)
 import Techniques from "./components/Techniques";
-
-// استدعاء الملف الاحتياطي باسم مختلف تماماً عشان ما يصير أي خطأ
-
+import Records from './components/Records'; // تم دمج شغل جودي هنا
 
 function App() {
   return (
@@ -21,14 +17,14 @@ function App() {
       <Types />
       <Pack />
       
-      {/* 🧭 هنا البوصلة الأساسية حقتك ثابتة وما تتغير ولا نلمسها */}
+      {/* قسم المأوى والبوصلة الخاص بكِ */}
       <Techniques />
       <Shelter />
       
-      {/* 🧪 هنا ملف التجارب الاحتياطي اللي بنغير فيه على راحتنا كل شوية */}
+      {/* قسم السجلات الخاص بجودي */}
+      <Records />
       
-      
-      {/* الأقسام الباقية بنضيفها تحتها بالترتيب حبة حبة */}
+      {/* الأقسام الباقية بنضيفها تحتها بالترتيب */}
     </div>
   );
 }
