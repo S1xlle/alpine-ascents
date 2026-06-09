@@ -8,6 +8,12 @@ import Shelter from './components/Shelter';
 import Techniques from "./components/Techniques";
 import Records from './components/Records'; // تم دمج شغل جودي هنا
 
+import OrganizationsSection from './components/OrganizationsSection';
+import InteractiveMap from './components/InteractiveMap';
+import BottomTicker from './components/BottomTicker';
+
+
+
 function App() {
   return (
     <div>
@@ -23,6 +29,11 @@ function App() {
       
       {/* قسم السجلات الخاص بجودي */}
       <Records />
+      
+      <OrganizationsSection />
+      
+      <InteractiveMap />
+      <BottomTicker />
       
       {/* الأقسام الباقية بنضيفها تحتها بالترتيب */}
     </div>

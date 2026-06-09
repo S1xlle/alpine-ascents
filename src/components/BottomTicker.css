@@ -1,0 +1,19 @@
+.ticker-bar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #102542; /* Deep Navy */
+    color: #E67E22; /* Summit Orange */
+    padding: 10px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    border-top: 2px solid #2D5A4B; /* Forest Green */
+    z-index: 1000;
+}
+
+.ticker-content {
+    display: flex;
+    justify-content: space-around;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}

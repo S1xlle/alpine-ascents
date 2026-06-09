@@ -1,0 +1,20 @@
+.peak-gateway-section { padding: 100px 8%; background: #F8F9FA; min-height: 100vh; }
+.gateway-header { text-align: center; margin-bottom: 60px; }
+.gateway-header h1 { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; color: #102542; }
+
+.control-panel { display: flex; justify-content: center; gap: 15px; margin-top: 30px; }
+.control-panel input, .control-panel select { padding: 15px 30px; border-radius: 50px; border: 1px solid #ddd; outline: none; transition: 0.3s; }
+.control-panel input:focus { border-color: #E67E22; }
+
+.hub-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 40px; }
+.hub-card { background: white; padding: 40px; border-radius: 25px; border: 1px solid #eee; transition: 0.4s; }
+.hub-card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(0,0,0,0.1); border-color: #2D5A4B; }
+
+.card-top { display: flex; justify-content: space-between; align-items: center; }
+.card-top h3 { font-size: 1.5rem; color: #102542; margin: 0; }
+.card-top span { background: #F8F9FA; padding: 5px 15px; border-radius: 20px; font-size: 0.7rem; font-weight: bold; color: #E67E22; }
+
+.loc { color: #7D8597; margin: 10px 0; }
+.stats-strip { border: 1px solid #eee; padding: 10px; border-radius: 10px; font-weight: bold; margin: 20px 0; }
+.book-btn { width: 100%; background: #102542; color: white; padding: 15px; border-radius: 10px; border: none; cursor: pointer; transition: 0.3s; }
+.book-btn:hover { background: #2D5A4B; }
