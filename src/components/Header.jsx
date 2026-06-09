@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import logoImg from '../assets/logo.jpg';
+import logoImg from '../assets/logo.png';
 import Booking from './Booking';
 
 function Header() {
@@ -7,14 +7,7 @@ function Header() {
   const [showBooking, setShowBooking] = useState(false);
   
 
-  const [visitorCount, setVisitorCount] = useState(() => {
-    const savedCount = localStorage.getItem('visitor_count');
-    const initialCount = savedCount ? parseInt(savedCount, 10) : 100;
-    const newCount = initialCount + 1;
-    localStorage.setItem('visitor_count', newCount);
-    return newCount;
-  });
-
+  
   const menuItems = [
     { name: 'Home', link: '#hero' },
     { name: 'History', link: '#history' },
@@ -36,15 +29,18 @@ function Header() {
       <div className="container-fluid">
         
         {/* اللوجو واسم الموقع على اليسار */}
-        <a className="navbar-brand d-flex align-items-center gap-2" href="#hero">
-          <img src={logoImg} alt="Alpine Logo" style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover' }} />
-          <span className="brand-title fw-bold text-white">ALPINE ASCENTS</span>
-        </a>
+        <a className="navbar-brand header-brand" href="#hero">
+  <img src={logoImg} alt="Alpine Logo" className="header-logo" />
 
+  <div className="brand-copy">
+    <span className="brand-name">ALPINE ASCENTS</span>
+    <span className="brand-tagline">Beyond Every Summit</span>
+  </div>
+</a>
         {/* زر الـ Menu المنسدل في المنتصف */}
         <div className="dropdown mx-auto">
           <button 
-            className="btn dropdown-toggle fw-semibold text-white px-4 py-2 custom-menu-btn" 
+            className="btn dropdown-toggle fw-semibold  px-4 py-2 custom-menu-btn" 
             type="button" 
             id="menuDropdown" 
             data-bs-toggle="dropdown" 
@@ -78,10 +74,7 @@ function Header() {
              BOOK
         </button>
 
-        <div className="d-flex align-items-center px-3 py-1 rounded-pill visitor-badge">
-          <span className="badge-text">👤 VISITORS:</span>
-          <span className="fw-bold badge-number">{visitorCount}</span>
-        </div>
+       
 
      </div>
     </nav>

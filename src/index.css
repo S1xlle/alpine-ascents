@@ -22,12 +22,12 @@ h1, h2, h3 {
 }
 
 /* الهيدر الشفاف الفخم فوق الجبل */
-.custom-navbar {
-  background-color: rgba(16, 37, 66, 0.3) !important;
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+.header-book-btn:hover,
+.custom-menu-btn:hover {
+  color: #2D5A4B !important;
+  background: transparent !important;
+  border-color: transparent !important;
 }
-
 .brand-title {
   font-family: 'Poppins', sans-serif;
   font-size: 1.1rem;
@@ -35,10 +35,16 @@ h1, h2, h3 {
 }
 
 /* تأثير زر الـ Menu عند تمرير الماوس */
-.custom-menu-btn:hover {
-  background-color: rgba(255, 255, 255, 0.15) !important;
-  color: var(--summit-orange) !important;
-  border-color: var(--summit-orange) !important;
+.custom-menu-btn {
+  background: transparent !important;
+  border: none !important;
+  color: #102542 !important;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-left: auto;
+  margin-right: 28px;
 }
 
 /* تأثير حركي خفيف لعناصر القائمة المنسدلة */
@@ -85,12 +91,109 @@ h1, h2, h3 {
 }
 
 .header-book-btn {
-  background: #e67e22;
+  background: transparent !important;
+  border: none !important;
+  color: #102542 !important;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-right: 18px;
+}
+
+
+
+
+.header-book-btn:hover,
+.custom-menu-btn:hover {
+  color: #2D5A4B !important;
+  background: transparent !important;
+  border-color: transparent !important;
+}
+
+
+.navbar-brand {
+  padding: 0;
+}
+
+.header-logo {
+  height: 58px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 0;
+}
+
+.custom-menu-btn,
+.custom-menu-btn * {
+  color: #102542 !important;
+  background: transparent !important;
+  border: none !important;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.dropdown {
+  margin-left: auto !important;
+  margin-right: 35px !important;
+}
+
+.header-book-btn {
+  background: transparent !important;
+  border: none !important;
+  color: #102542 !important;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+
+
+
+
+.custom-navbar {
+  background: rgba(248,249,250,.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(16,37,66,.08);
+}
+
+
+
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.header-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 0 !important;
+  background: transparent;
+}
+
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+
+.brand-name {
   color: #102542;
-  border: none;
-  border-radius: 999px;
-  padding: 10px 22px;
-  font-weight: 800;
-  margin-right: 12px;
-  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.brand-tagline {
+  color: #7D8597;
+  font-family: 'Poppins', sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
 }
