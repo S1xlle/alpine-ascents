@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght \@400;600;700;800&family=Poppins:wght \@400;600;700&display=swap');
+
+.techniques-section-container {
+  padding: 80px 0;
+  position: relative;
+  z-index: 2;
+  background-color: #1B1B1B !important; /* اللون الفحمي المعتمد كخلفية كلية */
+}
+
+/* تعديل: جعل العنوان الفرعي باللون الأبيض مع إضافة الظل لحل مشكلة عدم الوضوح */
+.subtitle-tactical {
+  color: #FFFFFF !important; 
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  display: block;
+  margin-bottom: 8px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.main-title-tactical {
+  color: #E67E22 !important; /* البرتقالي الرسمي المعتمد */
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: calc(2.8rem + 1.5vw);
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* تصميم العجلة الثابت النظيف بدون توهج سماوي */
+.navigation-wheel-outer {
+  width: 360px;
+  height: 360px;
+  border: 3px dashed #E67E22;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1B1B1B; 
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.7);
+}
+
+.wheel-mountain-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden; 
+  z-index: 0;
+}
+
+.mountain-img-fixed {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.95;
+}
+
+/* الأزرار السبعة الدائرية */
+.wheel-node {
+  position: absolute;
+  width: 58px;
+  height: 58px;
+  background: #102542; /* الكحلي المعتمد للـ nodes */
+  border: 2px solid #F8F9FA;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 5;
+}
+
+.node-text {
+  color: #F8F9FA;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.wheel-node:hover {
+  background: #E67E22; 
+  border-color: #FFFFFF;
+  transform: scale(1.1);
+}
+
+/* الإحداثيات الهندسية الأصلية المحفوظة بالملّي */
+.node-RM { top: -29px; left: calc(50% - 29px); }
+.node-BL { top: 35px; right: -5px; }
+.node-RA { top: 162px; right: -29px; }
+.node-RP { bottom: 25px; right: 18px; }
+.node-SA { bottom: 25px; left: 18px; }
+.node-GT { top: 162px; left: -29px; }
+.node-TN { top: 35px; left: -5px; }
+
+.active-wheel-node {
+  border-color: #FFFFFF !important;
+  background: #E67E22 !important; 
+  box-shadow: 0 0 20px rgba(230, 126, 34, 0.7);
+  transform: scale(1.15) !important;
+  z-index: 10;
+}
+
+.wheel-pointer {
+  font-size: 2rem;
+  position: absolute;
+  color: #E67E22; 
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center center;
+  padding-bottom: 60px;
+  z-index: 2;
+}
+
+.pointer-angle-RM { transform: rotate(0deg); }
+.pointer-angle-BL { transform: rotate(51.4deg); }
+.pointer-angle-RA { transform: rotate(102.8deg); }
+.pointer-angle-RP { transform: rotate(154.2deg); }
+.pointer-angle-SA { transform: rotate(205.6deg); }
+.pointer-angle-GT { transform: rotate(257deg); }
+.pointer-angle-TN { transform: rotate(308.4deg); }
+
+/* كارت المعلومات الزجاجي */
+.info-card-glass {
+  background: rgba(27, 27, 27, 0.95); 
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(248, 249, 250, 0.15);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.6);
+}
+
+/* تعديل: تكبير وتوسيع حاوية الصورة لتصبح واضحة وممتازة للنظر */
+.card-dynamic-image-wrapper {
+  width: 100%;
+  height: 320px; /* زيادة الارتفاع والمساحة لتظهر الصور بشكل أوسع وأوضح */
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(248, 249, 250, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.card-dynamic-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: smoothFadeIn 0.4s ease-out;
+}
+
+@keyframes smoothFadeIn {
+  from { opacity: 0.6; transform: scale(1.02); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* تعديل: جعل نص المرحلة باللون الأبيض مع الظل ليبرز تماماً */
+.mountain-phase-text {
+  color: #FFFFFF !important; 
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.tech-card-title {
+  color: #E67E22 !important; 
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: calc(2.4rem + 1vw);
+  letter-spacing: 1px;
+  margin-top: 5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* تعديل: جعل لون نص البرجراف أبيض ناصع ومريح للقراءة لحل مشكلة الوضوح */
+.tech-card-desc {
+  color: #E2E8F0 !important; 
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.card-divider {
+  border-top: 1px solid rgba(248, 249, 250, 0.15);
+  margin: 25px 0;
+}
+
+.gear-label {
+  color: #E67E22;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+}
+
+.gear-values {
+  color: #FFFFFF;
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.15rem;
+}
+
+.risk-badge {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.badge-low { background: rgba(248, 249, 250, 0.1); border: 1px solid #7D8597; color: #F8F9FA; }
+.badge-moderate, .badge-medium { background: rgba(230, 126, 34, 0.2); border: 1px solid #E67E22; color: #E67E22; }
+.badge-high, .badge-critical { background: rgba(231, 76, 60, 0.25); border: 1px solid #E74C3C; color: #FF6B6B; }
+
+/* شاشات التابلت والمواصفات المتجاوبة بالكامل */
+@media (max-width: 991px) {
+  .navigation-wheel-outer {
+    width: 320px;
+    height: 320px;
+    margin-bottom: 25px;
+  }
+  .wheel-node {
+    width: 52px;
+    height: 52px;
+  }
+  .node-text {
+    font-size: 0.9rem;
+  }
+  .wheel-pointer {
+    font-size: 1.7rem;
+    padding-bottom: 45px;
+  }
+  .info-card-glass {
+    padding: 30px;
+  }
+  .card-dynamic-image-wrapper {
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navigation-wheel-outer {
+    width: 270px;
+    height: 270px;
+  }
+  .wheel-node {
+    width: 44px;
+    height: 44px;
+  }
+  .node-text {
+    font-size: 0.75rem;
+  }
+  .node-RM { top: -22px; left: calc(50% - 22px); }
+  .node-BL { top: 22px; right: -3px; }
+  .node-RA { top: 115px; right: -22px; }
+  .node-RP { bottom: 12px; right: 10px; }
+  .node-SA { bottom: 12px; left: 10px; }
+  .node-GT { top: 115px; left: -22px; }
+  .node-TN { top: 22px; left: -3px; }
+  
+  .wheel-pointer {
+    font-size: 1.3rem;
+    padding-bottom: 30px;
+  }
+  .card-dynamic-image-wrapper {
+    height: 180px;
+  }
+}
