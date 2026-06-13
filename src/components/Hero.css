@@ -4,148 +4,240 @@
   position: relative;
   min-height: 100vh;
   overflow: hidden;
-  color: #1b1b1b;
+  color: #f8f9fa;
+  background: #102542;
 }
 
 .hero-image {
-  position: relative;
+  position: absolute;
+  inset: -3%;
+  width: 106%;
+  height: 106%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.08);
+  will-change: transform;
 }
 
-.hero-image::after {
-  content: "";
+.hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(255, 0, 0, 0.4);
-  z-index: 999;
+  z-index: 1;
+  background:
+    radial-gradient(circle at 72% 35%, rgba(230,126,34,.08), transparent 30%),
+    linear-gradient(90deg, rgba(16,37,66,.9), rgba(16,37,66,.42), rgba(16,37,66,.15));
 }
 
+.hero-reveal-fog {
+  position: absolute;
+  inset: -30%;
+  z-index: 5;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 45% 55%, rgba(248,249,250,.95), rgba(248,249,250,.55) 34%, transparent 68%),
+    radial-gradient(circle at 18% 70%, rgba(248,249,250,.55), transparent 32%),
+    radial-gradient(circle at 82% 65%, rgba(248,249,250,.45), transparent 34%);
+  filter: blur(70px);
+}
+
+.hero-fog {
+  position: absolute;
+  bottom: -12%;
+  left: -18%;
+  width: 140%;
+  height: 68%;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 70%, rgba(248,249,250,.26), transparent 32%),
+    radial-gradient(circle at 50% 64%, rgba(248,249,250,.2), transparent 36%),
+    radial-gradient(circle at 82% 70%, rgba(248,249,250,.18), transparent 30%);
+  filter: blur(58px);
+  animation: fogMove 16s ease-in-out infinite alternate;
+}
+
+.fog-two {
+  opacity: .5;
+  transform: scale(1.35);
+  animation-duration: 26s;
+}
+
+.snow-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.snow-particles span {
+  position: absolute;
+  top: -10%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(248,249,250,.85);
+  box-shadow: 0 0 12px rgba(248,249,250,.65);
+  animation: snowFall linear infinite;
+}
+
+.snow-particles span:nth-child(1) { left: 8%; animation-duration: 9s; animation-delay: 0s; }
+.snow-particles span:nth-child(2) { left: 18%; animation-duration: 12s; animation-delay: 1s; }
+.snow-particles span:nth-child(3) { left: 28%; animation-duration: 10s; animation-delay: 2s; }
+.snow-particles span:nth-child(4) { left: 38%; animation-duration: 14s; animation-delay: .5s; }
+.snow-particles span:nth-child(5) { left: 48%; animation-duration: 11s; animation-delay: 1.5s; }
+.snow-particles span:nth-child(6) { left: 58%; animation-duration: 13s; animation-delay: 0s; }
+.snow-particles span:nth-child(7) { left: 68%; animation-duration: 10s; animation-delay: 2.5s; }
+.snow-particles span:nth-child(8) { left: 78%; animation-duration: 15s; animation-delay: 1s; }
+.snow-particles span:nth-child(9) { left: 88%; animation-duration: 12s; animation-delay: 3s; }
+.snow-particles span:nth-child(10) { left: 96%; animation-duration: 16s; animation-delay: .2s; }
 
 .hero-content {
   position: absolute;
-  top: 30%;
-  left: 10%;
-  z-index: 2;
-  max-width: 520px;
-  animation: heroReveal 1.2s ease forwards;
-  padding-top: 180;
+  top: 26%;
+  left: 8%;
+  z-index: 6;
+  max-width: 640px;
 }
 
-
-
 .hero-kicker {
-  color: #102542;
+  color: rgba(248,249,250,.9);
   text-transform: uppercase;
-  letter-spacing: 5px;
+  letter-spacing: 7px;
   font-size: 13px;
   font-weight: 900;
-  margin-bottom: 25px;
+  margin-bottom: 18px;
   font-family: "Manrope", sans-serif;
-  transform: translateY(25px);
-  margin-top: 90px;
 }
 
 .hero-title {
-  color: #e67e22;
-  text-shadow: 0 4px 15px rgba(230,126,34,.15);
+  color: #f8f9fa;
   font-family: "Bebas Neue", sans-serif;
-  font-size: clamp(70px, 8vw, 115px);
-  line-height: .95;
-  letter-spacing: 8px;
-  margin: 0;
+  font-size: clamp(88px, 10vw, 155px);
+  line-height: .84;
+  letter-spacing: 9px;
+  margin: 0 0 24px;
   text-transform: uppercase;
-  white-space: nowrap;
-  margin-top: 20px;
-  margin-bottom: 25px;
-  text-shadow:
-    0 3px 0 #102542,
-    0 10px 25px rgba(16, 37, 66, 0.45),
-    0 25px 70px rgba(230, 126, 34, 0.35);
+  text-shadow: 0 6px 0 #102542, 0 24px 60px rgba(0,0,0,.62);
+}
+
+.hero-title span {
+  display: block;
+  color: #e67e22;
+  text-shadow: 0 6px 0 #102542, 0 24px 60px rgba(0,0,0,.62), 0 0 34px rgba(230,126,34,.25);
 }
 
 .hero-title::after {
   content: "";
   display: block;
-  width: 120px;
+  width: 145px;
   height: 5px;
-  background: #2D5A4B;
-  border-radius: 50px;
-  margin-top: 12px;
-
-  box-shadow: 0 0 12px rgba(45, 90, 75, 0.4);
+  background: #e67e22;
+  border-radius: 999px;
+  margin-top: 18px;
+  box-shadow: 0 0 18px rgba(230,126,34,.45);
 }
 
-
 .hero-text {
-  max-width: 520px;
-  margin: 22px 0 28px;
-  color: #1b1b1b;
+  max-width: 540px;
+  margin: 22px 0 32px;
+  color: rgba(248,249,250,.86);
   font-family: "Manrope", sans-serif;
   font-size: 17px;
   line-height: 1.8;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .hero-btn {
   display: inline-flex;
   color: #102542;
   background: #e67e22;
-  padding: 14px 28px;
+  padding: 15px 34px;
   border-radius: 999px;
   text-decoration: none;
   font-weight: 900;
   letter-spacing: 1px;
-  transition: 0.35s ease;
+  box-shadow: 0 0 22px rgba(230,126,34,.36);
+  transition: .35s ease;
 }
 
 .hero-btn:hover {
-  transform: translateY(-5px);
-  background: #2d5a4b;
-  color: #f8f9fa;
+  transform: translateY(-6px) scale(1.04);
+  background: #f8f9fa;
+  color: #102542;
+  box-shadow: 0 0 48px rgba(230,126,34,.68);
 }
 
 .visitor-counter {
   position: absolute;
   right: 7%;
-  bottom: 12%;
-  z-index: 3;
+  bottom: 17%;
+  z-index: 6;
   text-align: right;
 }
 
 .visitor-counter h2 {
-  color: #2d5a4b;
-  font-size: clamp(38px, 5vw, 72px);
+  color: #f8f9fa;
+  font-size: clamp(42px, 5vw, 76px);
   font-weight: 900;
   margin: 0;
-  text-shadow: 0 6px 18px rgba(0,0,0,.35);
+  text-shadow: 0 8px 25px rgba(0,0,0,.65);
 }
 
 .visitor-counter p {
-  color: #F8F9FA;
+  color: #e67e22;
   font-size: 11px;
   font-weight: 900;
   letter-spacing: 3px;
 }
 
-@keyframes heroReveal {
-  from {
-    opacity: 0;
-    transform: translateY(35px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.hero-status {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 7;
+  min-height: 38px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: rgba(16,37,66,.88);
+  color: #f8f9fa;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  font-family: "Manrope", sans-serif;
+  border-top: 1px solid rgba(248,249,250,.12);
+}
+
+.hero-status span {
+  color: rgba(248,249,250,.82);
+}
+
+.hero-status span:first-child {
+  color: #e67e22;
+}
+
+@keyframes fogMove {
+  from { transform: translateX(-5%) translateY(18px) scale(1); }
+  to { transform: translateX(6%) translateY(-18px) scale(1.08); }
+}
+
+@keyframes snowFall {
+  0% { transform: translateY(-10vh) translateX(0); opacity: 0; }
+  15% { opacity: 1; }
+  100% { transform: translateY(115vh) translateX(60px); opacity: 0; }
 }
 
 @media (max-width: 850px) {
   .hero-content {
-    top: 18%;
+    top: 22%;
     left: 6%;
     right: 6%;
   }
 
   .hero-title {
-    font-size: clamp(52px, 15vw, 90px);
+    font-size: clamp(62px, 18vw, 105px);
   }
 
   .hero-text {
@@ -155,6 +247,78 @@
 
   .visitor-counter {
     right: 6%;
-    bottom: 5%;
+    bottom: 9%;
+  }
+
+  .hero-status {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+}
+
+
+
+
+.hero-light-beam {
+  position: absolute;
+  top: -20%;
+  left: -30%;
+  width: 45%;
+  height: 150%;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    rgba(248,249,250,.14) 45%,
+    transparent 70%
+  );
+  filter: blur(18px);
+  transform: rotate(12deg);
+  animation: lightBeam 7s ease-in-out infinite;
+}
+
+@keyframes lightBeam {
+  0% {
+    transform: translateX(-30%) rotate(12deg);
+    opacity: 0;
+  }
+  35% {
+    opacity: .75;
+  }
+  100% {
+    transform: translateX(260%) rotate(12deg);
+    opacity: 0;
+  }
+}
+
+
+.hero-intro {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  background: #102542;
+  display: grid;
+  place-items: center;
+  animation: introFade 2.2s ease forwards;
+  pointer-events: none;
+}
+
+.hero-intro span {
+  color: #f8f9fa;
+  font-family: "Manrope", sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+}
+
+@keyframes introFade {
+  0%, 55% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
   }
 }
