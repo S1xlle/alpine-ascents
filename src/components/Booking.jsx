@@ -434,40 +434,71 @@ function Booking({ isOpen, onClose }) {
             )}
 
             {step === 6 && (
-              <form className="confirm-step" onSubmit={submitBooking}>
-                <div className="expedition-pass">
-                  <h3>Expedition Pass</h3>
-                  <p><strong>Trip:</strong> {selectedTrip?.title}</p>
-                  <p><strong>Mode:</strong> {tripType}</p>
-                  <p><strong>Shelter:</strong> {selectedShelter?.name}</p>
-                  <p><strong>Name:</strong> {form.fullName || "Not entered"}</p>
-                  <p><strong>Passport:</strong> {form.passport || "Not entered"}</p>
-                  <p><strong>Experience:</strong> {form.experience || "Not entered"}</p>
+  <form className="confirm-step" onSubmit={submitBooking}>
+    <div className="confirm-grid">
+      <div className="expedition-pass">
+        <h3>Expedition Pass</h3>
 
-                  <div className="final-price">
-  <div className="price-row">
-    <span>
-      {tripType === "Team Expedition"
-        ? `Group Price • ${Number(form.groupSize)} Members`
-        : "Solo Price"}
-    </span>
+        <p><strong>Trip:</strong> {selectedTrip?.title}</p>
+        <p><strong>Mode:</strong> {tripType}</p>
+        <p><strong>Shelter:</strong> {selectedShelter?.name}</p>
+        <p><strong>Name:</strong> {form.fullName || "Not entered"}</p>
+        <p><strong>Passport:</strong> {form.passport || "Not entered"}</p>
+        <p><strong>Experience:</strong> {form.experience || "Not entered"}</p>
 
-    {teamDiscount > 0 && (
-      <b className="discount-badge">Save ${teamDiscount}</b>
-    )}
-  </div>
+        <div className="final-price">
+          <div className="price-row">
+            <span>
+              {tripType === "Team Expedition"
+                ? `Group Price • ${Number(form.groupSize)} Members`
+                : "Solo Price"}
+            </span>
 
-  <h2>${totalPrice}</h2>
-  <small>Estimated total for this booking.</small>
-</div>
-                </div>
-
-                <div className="booking-actions bottom">
-                  <button className="booking-back" type="button" onClick={prevStep}>← Back</button>
-                  <button className="booking-next" type="submit">Confirm Booking</button>
-                </div>
-              </form>
+            {teamDiscount > 0 && (
+              <b className="discount-badge">Save ${teamDiscount}</b>
             )}
+          </div>
+
+          <h2>${totalPrice}</h2>
+          <small>Estimated total for this booking.</small>
+        </div>
+      </div>
+
+      <div className="gear-side-card">
+        <span>Before you confirm</span>
+
+        <h3>Are you fully equipped?</h3>
+
+        <p>
+          We’ll match your selected ascent with the gear you may need before departure.
+        </p>
+
+        <div className="gear-highlight">
+          Based on: {selectedTrip?.title} • {form.experience || "Your level"}
+        </div>
+
+        <a
+  href="#gear"
+  className="gear-cta"
+  onClick={onClose}
+>
+  Check Recommended Gear →
+</a>
+      </div>
+    </div>
+
+    <div className="booking-actions bottom">
+      <button className="booking-back" type="button" onClick={prevStep}>
+        ← Back
+      </button>
+
+      <button className="booking-next" type="submit">
+        Confirm Booking
+      </button>
+    </div>
+  </form>
+)}
+
           </>
         ) : (
           <div className="booking-success">
@@ -479,11 +510,14 @@ function Booking({ isOpen, onClose }) {
               playsInline
               className="confirmation-video"
             />
+
             <div className="success-content">
               <h2>Expedition Confirmed</h2>
               <p>Your adventure is booked.</p>
               <strong>{bookingId}</strong>
-              <button className="booking-next" onClick={onClose}>Close</button>
+              <button className="booking-next" onClick={onClose}>
+                Close
+              </button>
             </div>
           </div>
         )}
