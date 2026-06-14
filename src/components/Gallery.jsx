@@ -1,56 +1,85 @@
 import React, { useState } from "react";
 import "./Gallery.css";
 
-const Gallery = () => {
-  // فيديوهات من الإنترنت (لن تحتاجي لمجلد assets بعد الآن)
-  const [activeVideo, setActiveVideo] = useState("https://www.w3schools.com/html/mov_bbb.mp4");
+// VIDEOS
+import baseCampJourney from "../assets/baseCampJourney.mp4";
+import iceWallAscent from "../assets/iceWallAscent.mp4";
+import stormSummitPush from "../assets/stormSummitPush.mp4";
 
+// IMAGES
+import glacierCamp from "../assets/glacier-camp.jpg";
+import summitView from "../assets/summit-view.jpg";
+import iceCave from "../assets/ice-cave-exploration.jpg";
+import rockClimb from "../assets/rock-face-climb.jpg";
+import alpineSunset from "../assets/alpine-sunset.jpg";
+
+export default function Gallery() {
   const videos = [
-    { id: 1, src: "https://www.w3schools.com/html/mov_bbb.mp4", title: "Base Camp" },
-    { id: 2, src: "https://www.w3schools.com/html/movie.mp4", title: "Ice Ascent" },
-    { id: 3, src: "https://www.w3schools.com/html/mov_bbb.mp4", title: "Summit Push" },
+    { id: 1, src: baseCampJourney, title: "Base Camp Journey" },
+    { id: 2, src: iceWallAscent, title: "Ice Wall Ascent" },
+    { id: 3, src: stormSummitPush, title: "Storm Summit Push" },
   ];
 
+  const [activeVideo, setActiveVideo] = useState(videos[0].src);
+
   const images = [
-    "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b",
-    "https://images.unsplash.com/photo-1502784444187-359ac186c5bb",
-    "https://images.unsplash.com/photo-1530521954074-e64f6810b32d",
-    "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5",
-    "https://images.unsplash.com/photo-1522163182402-834f877f8558",
-    "https://images.unsplash.com/photo-1506744038136-46273834b3fb"
+    { src: glacierCamp, title: "Glacier Camp", desc: "High altitude base camp" },
+    { src: summitView, title: "Summit View", desc: "Peak mountain view" },
+    { src: iceCave, title: "Ice Cave", desc: "Frozen exploration" },
+    { src: rockClimb, title: "Rock Climb", desc: "Technical climbing" },
+    { src: alpineSunset, title: "Alpine Sunset", desc: "Golden mountains" },
   ];
 
   return (
     <section className="gallery">
-      <div className="header" style={{textAlign: 'center', marginBottom: '40px'}}>
-        <h1 style={{color: '#102542'}}>MOUNTAIN GALLERY</h1>
-        <p>Explore extreme environments and expeditions</p>
+
+      {/* HEADER */}
+      <div className="header">
+        <h1>MOUNTAIN GALLERY</h1>
+        <p>Explore extreme environments & expeditions</p>
       </div>
 
       {/* VIDEO SECTION */}
-      <div className="videoBox" style={{textAlign: 'center', marginBottom: '50px'}}>
-        <video className="mainVideo" controls autoPlay muted loop style={{width: '80%', borderRadius: '20px'}}>
+      <div className="videoBox">
+
+        <video
+          key={activeVideo}
+          className="mainVideo"
+          controls
+          autoPlay
+          muted
+          loop
+        >
           <source src={activeVideo} type="video/mp4" />
         </video>
-        <div className="videoControls" style={{marginTop: '20px'}}>
+
+        <div className="videoControls">
           {videos.map((v) => (
-            <button key={v.id} onClick={() => setActiveVideo(v.src)} style={{margin: '0 10px', padding: '10px 20px', cursor: 'pointer'}}>
+            <button
+              key={v.id}
+              className={activeVideo === v.src ? "active" : ""}
+              onClick={() => setActiveVideo(v.src)}
+            >
               {v.title}
             </button>
           ))}
         </div>
+
       </div>
 
       {/* IMAGES GRID */}
-      <div className="grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px', padding: '0 10%' }}>
-        {images.map((src, i) => (
-          <div className="card" key={i} style={{ overflow: 'hidden', borderRadius: '15px', height: '250px' }}>
-            <img src={src} alt="Mountain" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+      <div className="grid">
+        {images.map((img, i) => (
+          <div className="card" key={i}>
+            <img src={img.src} alt={img.title} />
+            <div className="overlay">
+              <h3>{img.title}</h3>
+              <p>{img.desc}</p>
+            </div>
           </div>
         ))}
       </div>
+
     </section>
   );
-};
-
-export default Gallery;
+}
