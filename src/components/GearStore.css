@@ -1,0 +1,274 @@
+.gear-store {
+  height: 100vh;
+  overflow: visible;
+  padding: 88px 6% 34px;
+  background:
+    radial-gradient(circle at 85% 15%, rgba(230,126,34,.16), transparent 30%),
+    #071425;
+  color: #f8f9fa;
+}
+
+.store-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.store-header p {
+  color: #e67e22;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 5px;
+  margin: 0 0 8px;
+}
+
+.store-header h2 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(56px, 6vw, 96px);
+  letter-spacing: 6px;
+  margin: 0;
+  line-height: .9;
+}
+
+.loadout-btn {
+  border: 1px solid rgba(248,249,250,.14);
+  background: rgba(248,249,250,.08);
+  color: #f8f9fa;
+  padding: 15px 22px;
+  border-radius: 999px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.loadout-btn span {
+  margin-left: 12px;
+  color: #e67e22;
+  font-size: 22px;
+}
+
+.store-tabs {
+  display: flex;
+  gap: 12px;
+  margin: 25px 0 28px;
+}
+
+.store-tabs button {
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(248,249,250,.15);
+  background: rgba(248,249,250,.06);
+  color: #f8f9fa;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.store-tabs button.active {
+  background: #e67e22;
+  color: #102542;
+}
+
+.store-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.store-product {
+  min-height: 430px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-details {
+  padding: 0 4px;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+}
+
+.add-btn {
+  margin-top: 10px;
+  width: fit-content;
+  min-width: 145px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: none;
+  background: #e67e22;
+  color: #102542;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 0 22px rgba(230,126,34,.28);
+}
+
+.store-product:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.product-visual {
+  height: 220px;
+  overflow: visible;
+  border-radius: 28px;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-visual img {
+  width: auto;
+  height: 92%;
+  max-width: 82%;
+  max-height: 92%;
+  object-fit: contain;
+  display: block;
+}
+
+.product-details {
+  padding: 0 4px;
+  background: transparent;
+}
+
+.product-details > span {
+  color: #e67e22;
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.product-details h3 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 34px;
+  letter-spacing: 2px;
+  margin: 8px 0 10px;
+}
+
+.product-price-row {
+  margin-bottom: 14px;
+}
+
+.size-picker {
+  margin: 14px 0 18px;
+}
+
+.add-btn {
+  margin-top: 0;
+}
+
+.add-btn {
+  margin-top: auto;
+  width: 100%;
+  padding: 14px;
+  border-radius: 999px;
+  border: none;
+  background: #e67e22;
+  color: #102542;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.loadout-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  background: rgba(0,0,0,.65);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.loadout-panel {
+  width: 420px;
+  height: 100%;
+  background: #071425;
+  color: #f8f9fa;
+  padding: 38px;
+  position: relative;
+  box-shadow: -20px 0 70px rgba(0,0,0,.45);
+}
+
+.close-cart {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: #e67e22;
+  color: #102542;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.loadout-panel p {
+  color: #e67e22;
+  letter-spacing: 4px;
+  font-weight: 900;
+}
+
+.loadout-panel h3 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 46px;
+  letter-spacing: 3px;
+}
+
+.empty-cart {
+  color: rgba(248,249,250,.65);
+}
+
+.cart-items {
+  display: grid;
+  gap: 16px;
+  margin: 30px 0;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(248,249,250,.06);
+}
+
+.cart-item img {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+}
+
+.cart-item strong {
+  display: block;
+}
+
+.cart-item small {
+  color: rgba(248,249,250,.65);
+}
+
+.cart-item b {
+  color: #e67e22;
+}
+
+.cart-total {
+  border-top: 1px solid rgba(248,249,250,.14);
+  padding-top: 22px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-total strong {
+  color: #e67e22;
+  font-size: 34px;
+}
+
+

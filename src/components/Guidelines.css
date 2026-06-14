@@ -1,0 +1,85 @@
+:root {
+  --deep-navy: #102542;
+  --snow-white: #F8F9FA;
+  --summit-orange: #E67E22;
+}
+
+.guidelines-section {
+  padding: 120px 8%;
+  background: var(--deep-navy);
+  text-align: center;
+}
+
+/* HEADER */
+.guidelines-header h2 {
+  font-size: 3rem;
+  color: var(--snow-white);
+  margin-bottom: 10px;
+}
+
+.guidelines-header p {
+  color: rgba(248, 249, 250, 0.7);
+  margin-bottom: 60px;
+}
+
+/* GRID */
+.guidelines-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+}
+
+/* CARD */
+.guideline-card {
+  background: rgba(248, 249, 250, 0.05);
+  border: 1px solid rgba(248, 249, 250, 0.1);
+  padding: 25px;
+  border-radius: 18px;
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+/* hover effect */
+.guideline-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--summit-orange);
+  box-shadow: 0 20px 50px rgba(230, 126, 34, 0.15);
+}
+
+/* icon */
+.icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+/* title */
+.guideline-card h3 {
+  color: var(--snow-white);
+  margin-bottom: 10px;
+}
+
+/* text */
+.guideline-card p {
+  color: rgba(248, 249, 250, 0.7);
+  line-height: 1.6;
+}
+
+/* orange glow effect */
+.guideline-card::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 120px;
+  height: 120px;
+  background: rgba(230, 126, 34, 0.1);
+  border-radius: 50%;
+  filter: blur(20px);
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.guideline-card:hover::before {
+  opacity: 1;
+}

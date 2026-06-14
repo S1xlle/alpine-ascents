@@ -1,0 +1,149 @@
+:root {
+  --deep-navy: #102542;
+  --snow-white: #F8F9FA;
+  --summit-orange: #E67E22;
+}
+
+/* SECTION */
+
+.hazard-section {
+  padding: 90px 8%;
+  background: var(--deep-navy);
+  color: var(--snow-white);
+}
+
+/* HEADER */
+
+.hazard-header {
+  text-align: center;
+  max-width: 800px;
+  margin: auto;
+  margin-bottom: 60px;
+}
+
+.hazard-header h1 {
+  font-size: 3rem;
+  color: var(--snow-white);
+  margin-bottom: 15px;
+}
+
+.hazard-header p {
+  color: rgba(248, 249, 250, 0.8);
+  line-height: 1.8;
+}
+
+/* LINKS */
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--snow-white);
+  border: 1px solid rgba(248,249,250,0.15);
+  padding: 12px 18px;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  border-color: var(--summit-orange);
+  color: var(--summit-orange);
+}
+
+/* GRID */
+
+.hazard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  gap: 25px;
+}
+
+/* CARD */
+
+.hazard-card {
+  background: rgba(248,249,250,0.04);
+  backdrop-filter: blur(8px);
+
+  border: 1px solid rgba(248,249,250,0.08);
+
+  border-radius: 20px;
+
+  padding: 30px;
+
+  transition: 0.35s ease;
+}
+
+.hazard-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--summit-orange);
+}
+
+/* ICON */
+
+.hazard-icon {
+  width: 65px;
+  height: 65px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 2rem;
+
+  border-radius: 15px;
+
+  background: rgba(230,126,34,0.12);
+
+  margin-bottom: 18px;
+}
+
+/* TITLE */
+
+.hazard-card h3 {
+  color: var(--snow-white);
+  margin-bottom: 10px;
+}
+
+/* DESCRIPTION */
+
+.hazard-card p {
+  color: rgba(248,249,250,0.75);
+  line-height: 1.7;
+}
+
+/* BADGE */
+
+.risk-badge {
+  display: inline-block;
+  margin-bottom: 15px;
+
+  padding: 6px 12px;
+
+  background: rgba(230,126,34,0.15);
+
+  color: var(--summit-orange);
+
+  border-radius: 20px;
+
+  font-size: 0.8rem;
+
+  font-weight: 600;
+}
+
+.hazard-card {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

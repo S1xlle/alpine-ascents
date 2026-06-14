@@ -1,0 +1,215 @@
+.history-section {
+  position: relative;
+  padding: 110px 20px;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(45, 90, 75, 0.15), transparent 30%),
+    linear-gradient(180deg, #f8f9fa 0%, #eef3f1 100%);
+  overflow: hidden;
+}
+
+.history-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.history-title p {
+  color: #e67e22;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.history-title h2 {
+  color: #102542;
+  font-size: clamp(48px, 7vw, 90px);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin: 8px 0;
+}
+
+.history-title span {
+  color: #2d5a4b;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.mountain-story {
+  position: relative;
+  width: min(950px, 100%);
+  min-height: 760px;
+  margin: auto;
+}
+
+.big-mountain {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 640px;
+  height: 690px;
+  transform: translateX(-50%);
+  background:
+    linear-gradient(135deg, rgba(45, 90, 75, 0.34), rgba(16, 37, 66, 0.12));
+  clip-path: polygon(
+    50% 0%,
+    94% 100%,
+    68% 100%,
+    52% 63%,
+    34% 100%,
+    6% 100%
+  );
+  filter: drop-shadow(0 35px 60px rgba(16, 37, 66, 0.18));
+}
+
+.big-mountain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(140deg, transparent 0 43%, rgba(248, 249, 250, 0.55) 44% 52%, transparent 53%),
+    linear-gradient(35deg, transparent 0 58%, rgba(45, 90, 75, 0.22) 59% 70%, transparent 71%);
+}
+
+.history-path {
+  position: absolute;
+  left: 50%;
+  top: 35px;
+  width: 500px;
+  height: 700px;
+  transform: translateX(-50%);
+  z-index: 3;
+  opacity: 0;
+}
+
+.history-path path {
+  stroke: #e67e22;
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
+  filter: drop-shadow(0 0 18px rgba(230, 126, 34, 0.55));
+}
+
+.history-path.show {
+  opacity: 1;
+}
+
+.history-path.show path {
+  animation: drawPath 2.2s ease forwards;
+}
+
+@keyframes drawPath {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.history-point {
+  position: absolute;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  opacity: 0;
+  transform: translateY(35px) scale(0.95);
+  transition: 0.8s ease;
+}
+
+.history-point.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.dot {
+  width: 22px;
+  height: 22px;
+  background: #2d5a4b;
+  border: 5px solid #f8f9fa;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 6px rgba(45, 90, 75, 0.18),
+    0 0 25px rgba(230, 126, 34, 0.55);
+}
+
+.history-text {
+  max-width: 260px;
+}
+
+.history-text span {
+  color: #e67e22;
+  font-weight: 900;
+  letter-spacing: 3px;
+  font-size: 13px;
+}
+
+.history-text h3 {
+  color: #102542;
+  font-size: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 4px 0;
+}
+
+.history-text p {
+  color: #1b1b1b;
+  line-height: 1.6;
+  font-size: 14px;
+  margin: 0;
+}
+
+.point-1 {
+  left: 28%;
+  bottom: 42px;
+  transition-delay: 0.2s;
+}
+
+.point-2 {
+  right: 21%;
+  bottom: 185px;
+  transition-delay: 0.4s;
+}
+
+.point-3 {
+  left: 17%;
+  bottom: 335px;
+  transition-delay: 0.6s;
+}
+
+.point-4 {
+  right: 18%;
+  top: 205px;
+  transition-delay: 0.8s;
+}
+
+.point-5 {
+  left: 43%;
+  top: 45px;
+  transition-delay: 1s;
+}
+
+@media (max-width: 800px) {
+  .mountain-story {
+    min-height: auto;
+    padding: 20px 0 40px;
+  }
+
+  .big-mountain,
+  .history-path {
+    display: none;
+  }
+
+  .history-point {
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    margin: 28px auto;
+    max-width: 480px;
+    background: rgba(255, 255, 255, 0.85);
+    border-left: 5px solid #2d5a4b;
+    padding: 18px;
+    border-radius: 20px;
+    box-shadow: 0 20px 45px rgba(16, 37, 66, 0.12);
+  }
+}
