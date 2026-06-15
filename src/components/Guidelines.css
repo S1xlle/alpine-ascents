@@ -1,85 +1,158 @@
 :root {
   --deep-navy: #102542;
-  --snow-white: #F8F9FA;
-  --summit-orange: #E67E22;
+  --snow-white: #f8f9fa;
+  --summit-orange: #e67e22;
 }
 
 .guidelines-section {
-  padding: 120px 8%;
+  position: relative;
+  overflow: hidden;
+  padding: 85px 7%;
   background: var(--deep-navy);
-  text-align: center;
+}
+
+/* LIGHT BEAM */
+.guidelines-light {
+  position: absolute;
+  top: 0;
+  left: -30%;
+  width: 34%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(230,126,34,.22),
+    rgba(248,249,250,.14),
+    transparent
+  );
+  filter: blur(38px);
+  animation: beamMove 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes beamMove {
+  from { transform: translateX(-20%); }
+  to { transform: translateX(340%); }
 }
 
 /* HEADER */
-.guidelines-header h2 {
-  font-size: 3rem;
-  color: var(--snow-white);
-  margin-bottom: 10px;
+.guidelines-header {
+  text-align: center;
+  margin-bottom: 55px;
 }
 
-.guidelines-header p {
-  color: rgba(248, 249, 250, 0.7);
-  margin-bottom: 60px;
+.guidelines-kicker {
+  display: block;
+  color: var(--summit-orange);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 5px;
+  margin-bottom: 12px;
+}
+
+.guidelines-title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(52px, 5.5vw, 88px);
+  line-height: .9;
+  letter-spacing: 5px;
+  color: var(--snow-white);
+  margin: 0;
+}
+
+.guidelines-title span {
+  display: block;
+  color: var(--summit-orange);
+}
+
+.guidelines-desc {
+  max-width: 560px;
+  margin: 18px auto 0;
+  color: rgba(248,249,250,.72);
+  font-size: 14px;
+  line-height: 1.7;
+  font-weight: 600;
 }
 
 /* GRID */
 .guidelines-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+  align-items: stretch;
 }
 
-/* CARD */
+/* CARDS */
 .guideline-card {
-  background: rgba(248, 249, 250, 0.05);
-  border: 1px solid rgba(248, 249, 250, 0.1);
-  padding: 25px;
-  border-radius: 18px;
-  transition: 0.3s;
+  background: rgba(248,249,250,.055);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(248,249,250,.12);
+  border-radius: 22px;
+  padding: 24px;
+  min-height: 220px;
   position: relative;
   overflow: hidden;
+  transition: .4s ease;
+  box-shadow: 0 18px 38px rgba(0,0,0,.18);
 }
 
-/* hover effect */
 .guideline-card:hover {
   transform: translateY(-10px);
   border-color: var(--summit-orange);
-  box-shadow: 0 20px 50px rgba(230, 126, 34, 0.15);
+  box-shadow: 0 25px 55px rgba(230,126,34,.16);
 }
 
-/* icon */
-.icon {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-
-/* title */
-.guideline-card h3 {
-  color: var(--snow-white);
-  margin-bottom: 10px;
-}
-
-/* text */
-.guideline-card p {
-  color: rgba(248, 249, 250, 0.7);
-  line-height: 1.6;
-}
-
-/* orange glow effect */
 .guideline-card::before {
   content: "";
   position: absolute;
-  top: -40px;
-  right: -40px;
-  width: 120px;
-  height: 120px;
-  background: rgba(230, 126, 34, 0.1);
+  top: -55px;
+  right: -55px;
+  width: 135px;
+  height: 135px;
   border-radius: 50%;
-  filter: blur(20px);
-  opacity: 0;
-  transition: 0.3s;
+  background: rgba(230,126,34,.08);
+  filter: blur(28px);
 }
 
-.guideline-card:hover::before {
-  opacity: 1;
+.guideline-number {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 52px;
+  line-height: 1;
+  color: rgba(248,249,250,.18);
+  display: block;
+  margin-bottom: 12px;
+}
+
+.guideline-divider {
+  width: 44px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--summit-orange);
+  margin-bottom: 18px;
+  box-shadow: 0 0 18px rgba(230,126,34,.35);
+}
+
+.guideline-card h3 {
+  color: var(--snow-white);
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: 900;
+}
+
+.guideline-card p {
+  color: rgba(248,249,250,.68);
+  line-height: 1.6;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+@media (max-width: 1200px) {
+  .guidelines-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .guidelines-grid {
+    grid-template-columns: 1fr;
+  }
 }

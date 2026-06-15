@@ -1,5 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;600&family=Poppins:wght@300;400;500;600&display=swap');
 
+/* إجبار الهيدر ليكون فوق أي شيء آخر */
+header {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999 !important;
+}
+
+/* إجبار الهيدر ليكون "الطبقة العليا" في الموقع */
+header.header {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999999 !important; /* رقم ضخم ليضمن أنه فوق كل شيء */
+  pointer-events: auto !important; /* ضمان استجابة الأزرار للضغط */
+}
+
+
+/* إجبار الأزرار لتكون قابلة للضغط */
+.nav-links, .book-btn {
+  position: relative;
+  z-index: 10000 !important;
+  pointer-events: auto !important;
+}
+
 body {
   font-family: "Manrope", sans-serif;
   background: var(--charcoal);
@@ -16,3 +43,32 @@ h1, h2, h3 {
 button, a, .nav {
   font-family: "Poppins", sans-serif;
 }
+
+/* هذا السطر يضمن أن أي مكون آخر لن يغطي الهيدر */
+#root > div {
+  position: relative;
+  z-index: 1 !important;
+}
+
+
+
+/* إجبار الهيدر على البقاء في الأعلى وتجاوز أي بوتستراب */
+.custom-navbar {
+    position: fixed !important;
+    top: 0 !important;
+    width: 100% !important;
+    z-index: 999999 !important;
+}
+
+/* حل مشكلة ضغط الأزرار */
+.header-book-btn, 
+.custom-menu-btn, 
+.navbar-brand {
+    position: relative !important;
+    z-index: 9999999 !important;
+    pointer-events: auto !important;
+}
+
+
+
+

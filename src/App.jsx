@@ -21,6 +21,7 @@ import GearStore from './components/GearStore';
 
 function App() {
   return (
+    
     <div>
       <Header />
       <Hero />
@@ -40,12 +41,12 @@ function App() {
       <Gallery />
       <Latest />
       
-      <InteractiveMap />
-      <Contact />
+      
       
       <BottomTicker />
       <GearStore />
-      
+      <InteractiveMap />
+      <Contact />
       {/* الأقسام الباقية بنضيفها تحتها بالترتيب */}
     </div>
   );

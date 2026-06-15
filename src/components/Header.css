@@ -1,19 +1,19 @@
 .header {
-  position: fixed;
+  position: fixed !important;
   top: 0;
   left: 0;
   width: 100%;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: 22px 70px;
-
-  z-index: 1000;
-
+  
+  /* هذه الثلاثة أسطر هي الحل السحري */
+  z-index: 999999999 !important; 
+  isolation: isolate; 
+  pointer-events: auto !important; 
+  
   transition: all .35s ease;
-
   background: transparent;
 }
 

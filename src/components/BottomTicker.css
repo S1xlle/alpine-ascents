@@ -1,19 +1,134 @@
-.ticker-bar {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #102542; /* Deep Navy */
-    color: #E67E22; /* Summit Orange */
-    padding: 10px 20px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.8rem;
-    border-top: 2px solid #2D5A4B; /* Forest Green */
-    z-index: 1000;
+.ticker-wrapper {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+
+  z-index: 9999;
+
+  overflow: hidden;
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  background: rgba(8, 15, 30, 0.75);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 0 25px rgba(0, 180, 255, 0.15),
+    0 0 60px rgba(0, 180, 255, 0.05);
+
+  height: 55px;
+  display: flex;
+  align-items: center;
 }
 
-.ticker-content {
-    display: flex;
-    justify-content: space-around;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+.ticker-track {
+  display: flex;
+  align-items: center;
+
+  width: fit-content;
+
+  animation: tickerMove 28s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+.ticker-item {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin-right: 80px;
+
+  white-space: nowrap;
+
+  color: #ffffff;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 0.85rem;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.ticker-item svg {
+  color: #00d4ff;
+
+  font-size: 1rem;
+
+  filter: drop-shadow(0 0 10px #00d4ff);
+}
+
+@keyframes tickerMove {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker-wrapper::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 120px;
+  height: 100%;
+
+  background: linear-gradient(
+    to right,
+    rgba(8, 15, 30, 1),
+    transparent
+  );
+
+  z-index: 2;
+}
+
+.ticker-wrapper::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  width: 120px;
+  height: 100%;
+
+  background: linear-gradient(
+    to left,
+    rgba(8, 15, 30, 1),
+    transparent
+  );
+
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .ticker-wrapper {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    height: 50px;
+  }
+
+  .ticker-item {
+    font-size: 0.7rem;
+    margin-right: 60px;
+    letter-spacing: 1px;
+  }
 }

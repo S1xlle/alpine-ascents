@@ -1,35 +1,94 @@
-import React, { useState, useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import './BottomTicker.css';
+import React, { useEffect, useRef, useState } from "react";
+import { FaMapMarkerAlt, FaClock, FaMountain, FaSatellite } from "react-icons/fa";
+import gsap from "gsap";
+import "./BottomTicker.css";
 
 const BottomTicker = () => {
-    const [time, setTime] = useState(new Date().toLocaleTimeString());
-    const tickerRef = useRef(null);
+  const tickerRef = useRef(null);
+  const [time, setTime] = useState("");
 
-    useEffect(() => {
-        // تحديث الوقت كل ثانية
-        const timer = setInterval(() => {
-            setTime(new Date().toLocaleTimeString());
-        }, 1000);
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
 
-        // تأثير الحركة (GSAP)
-        gsap.fromTo(tickerRef.current, 
-            { y: 50, opacity: 0 }, 
-            { y: 0, opacity: 1, duration: 1, delay: 0.5 }
-        );
+      setTime(
+        now.toLocaleTimeString("en-GB", {
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        })
+      );
+    };
 
-        return () => clearInterval(timer);
-    }, []);
+    updateTime();
 
-    return (
-        <div className="ticker-bar" ref={tickerRef}>
-            <div className="ticker-content">
-                <span>📍 LOCATION: AL-RAYYAN, QATAR</span>
-                <span>🕒 SYSTEM TIME: {time}</span>
-                <span>⛰️ STATUS: ALPINE ASCENTS ACTIVE</span>
-            </div>
-        </div>
+    const interval = setInterval(updateTime, 1000);
+
+    gsap.fromTo(
+      tickerRef.current,
+      {
+        y: 100,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1.2,
+        ease: "power4.out",
+      }
     );
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="ticker-wrapper" ref={tickerRef}>
+      <div className="ticker-track">
+
+        <div className="ticker-item">
+          <FaMapMarkerAlt />
+          <span>LOCATION: AL-RAYYAN, QATAR</span>
+        </div>
+
+        <div className="ticker-item">
+          <FaClock />
+          <span>SYSTEM TIME: {time}</span>
+        </div>
+
+        <div className="ticker-item">
+          <FaMountain />
+          <span>STATUS: ALPINE ASCENTS ACTIVE</span>
+        </div>
+
+        <div className="ticker-item">
+          <FaSatellite />
+          <span>GPS LINK ESTABLISHED</span>
+        </div>
+
+        {/* نسخة ثانية للحركة اللانهائية */}
+        <div className="ticker-item">
+          <FaMapMarkerAlt />
+          <span>LOCATION: AL-RAYYAN, QATAR</span>
+        </div>
+
+        <div className="ticker-item">
+          <FaClock />
+          <span>SYSTEM TIME: {time}</span>
+        </div>
+
+        <div className="ticker-item">
+          <FaMountain />
+          <span>STATUS: ALPINE ASCENTS ACTIVE</span>
+        </div>
+
+        <div className="ticker-item">
+          <FaSatellite />
+          <span>GPS LINK ESTABLISHED</span>
+        </div>
+
+      </div>
+    </div>
+  );
 };
 
 export default BottomTicker;

@@ -20,8 +20,6 @@ export default function Gallery() {
     { id: 3, src: stormSummitPush, title: "Storm Summit Push" },
   ];
 
-  const [activeVideo, setActiveVideo] = useState(videos[0].src);
-
   const images = [
     { src: glacierCamp, title: "Glacier Camp", desc: "High altitude base camp" },
     { src: summitView, title: "Summit View", desc: "Peak mountain view" },
@@ -30,11 +28,23 @@ export default function Gallery() {
     { src: alpineSunset, title: "Alpine Sunset", desc: "Golden mountains" },
   ];
 
+  const [activeVideo, setActiveVideo] = useState(videos[0].src);
+  const [fade, setFade] = useState(false);
+  const [lightbox, setLightbox] = useState(null);
+
+  const changeVideo = (src) => {
+    setFade(true);
+    setTimeout(() => {
+      setActiveVideo(src);
+      setFade(false);
+    }, 250);
+  };
+
   return (
     <section className="gallery">
 
       {/* HEADER */}
-      <div className="header">
+      <div className="gallery-header">
         <h1>MOUNTAIN GALLERY</h1>
         <p>Explore extreme environments & expeditions</p>
       </div>
@@ -44,7 +54,7 @@ export default function Gallery() {
 
         <video
           key={activeVideo}
-          className="mainVideo"
+          className={`mainVideo ${fade ? "fade-out" : "fade-in"}`}
           controls
           autoPlay
           muted
@@ -58,7 +68,8 @@ export default function Gallery() {
             <button
               key={v.id}
               className={activeVideo === v.src ? "active" : ""}
-              onClick={() => setActiveVideo(v.src)}
+              onClick={() => changeVideo(v.src)}
+              aria-label={`Play ${v.title}`}
             >
               {v.title}
             </button>
@@ -70,7 +81,11 @@ export default function Gallery() {
       {/* IMAGES GRID */}
       <div className="grid">
         {images.map((img, i) => (
-          <div className="card" key={i}>
+          <div
+            className="card"
+            key={i}
+            onClick={() => setLightbox(img)}
+          >
             <img src={img.src} alt={img.title} />
             <div className="overlay">
               <h3>{img.title}</h3>
@@ -79,6 +94,17 @@ export default function Gallery() {
           </div>
         ))}
       </div>
+
+      {/* LIGHTBOX */}
+      {lightbox && (
+        <div className="lightbox" onClick={() => setLightbox(null)}>
+          <img src={lightbox.src} alt={lightbox.title} />
+          <div className="lightbox-text">
+            <h3>{lightbox.title}</h3>
+            <p>{lightbox.desc}</p>
+          </div>
+        </div>
+      )}
 
     </section>
   );

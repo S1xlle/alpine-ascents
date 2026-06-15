@@ -1,10 +1,11 @@
 .gear-store {
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   overflow: visible;
-  padding: 88px 6% 34px;
+  padding: 88px 6% 90px;
   background:
-    radial-gradient(circle at 85% 15%, rgba(230,126,34,.16), transparent 30%),
-    #071425;
+    radial-gradient(circle at 85% 15%, rgba(230,126,34,.14), transparent 30%),
+    linear-gradient(180deg, #102542 0%, #18365d 55%, #102542 100%);
   color: #f8f9fa;
 }
 
@@ -117,10 +118,14 @@
   overflow: visible;
   border-radius: 28px;
   position: relative;
-
   display: flex;
   align-items: center;
   justify-content: center;
+
+  background:
+    radial-gradient(circle at center, rgba(248,249,250,.18), transparent 55%),
+    linear-gradient(145deg, #18365d, #102542);
+  border: 1px solid rgba(248,249,250,.14);
 }
 
 .product-visual img {
@@ -272,3 +277,30 @@
 }
 
 
+
+
+
+
+
+
+
+
+
+.store-product:hover img {
+  transform: translateY(-8px) scale(1.05);
+}
+
+.product-visual img {
+  transition: 0.4s ease;
+}
+
+.store-product:hover .product-visual {
+  box-shadow:
+    0 0 25px rgba(230,126,34,.18),
+    0 15px 40px rgba(0,0,0,.2);
+}
+
+.add-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(230,126,34,.4);
+}

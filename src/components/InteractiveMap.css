@@ -125,3 +125,50 @@ body {
   .map-layout { flex-direction: column; }
   .map-sidebar { width: 100%; height: auto; }
 }
+
+.reset-btn {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 12px;
+  background: #E67E22;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.reset-btn:hover {
+  transform: translateY(-2px);
+  background: #ff9f43;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 15px;
+  outline: none;
+}
+
+.popup-card {
+  min-width: 200px;
+}
+
+.popup-card h3 {
+  margin-bottom: 8px;
+  color: #102542;
+}
+
+.details-panel {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(16, 37, 66, 0.85);
+  padding: 15px 20px;
+  border-radius: 14px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+}
