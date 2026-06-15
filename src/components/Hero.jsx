@@ -1,12 +1,14 @@
 import "./Hero.css";
 import heroImage from "../assets/hero-cinematic.jpg";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 function Hero() {
+  const [count, setCount] = useState(0);
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(".hero-reveal-fog", 
@@ -62,7 +64,22 @@ function Hero() {
       ScrollTrigger.refresh();
     });
 
-    return () => ctx.revert();
+    let current = 0;
+    const target = 12487;
+
+    const timer = setInterval(() => {
+      current += 120;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      setCount(current);
+    }, 20);
+
+    return () => {
+      clearInterval(timer);
+      ctx.revert();
+    };
   }, []);
 
   return (
@@ -103,28 +120,32 @@ function Hero() {
 
       <div className="hero-content">
         <p className="hero-kicker">BEYOND THE SUMMIT</p>
+
         <h1 className="hero-title">
-          ALPINE <span>ASCENTS</span>
+          ALPINE
+          <span>ASCENTS</span>
         </h1>
+
         <p className="hero-text">
           Explore the world of mountaineering through history, techniques,
           records, safety, shelters, and expedition planning.
         </p>
-        <a href="#types" className="hero-btn">Begin The Journey →</a>
+
+        <a href="#types" className="hero-btn">
+          Begin The Journey →
+        </a>
       </div>
 
       <div className="visitor-counter">
+        <h2>{count.toLocaleString()}</h2>
         <p>EXPLORERS VISITED</p>
       </div>
 
-      <div className="hero-status">
-        <span>📍 LOCATION: AL-RAYYAN, QATAR</span>
-        <span>● SYSTEM: ALPINE ASCENTS ACTIVE</span>
-      </div>
+      
 
       <div className="hero-intro">
-        <span>PREPARING EXPEDITION</span>
-      </div>
+  <span>PREPARING EXPEDITION</span>
+</div>
     </section>
   );
 }

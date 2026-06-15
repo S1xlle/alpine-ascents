@@ -1,86 +1,71 @@
 .header {
-  position: fixed !important;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 22px 70px;
-  
-  /* هذه الثلاثة أسطر هي الحل السحري */
-  z-index: 999999999 !important; 
-  isolation: isolate; 
-  pointer-events: auto !important; 
-  
+
+  padding: 22px 60px;
+
+  z-index: 1000;
+
   transition: all .35s ease;
+
   background: transparent;
 }
 
 .header.scrolled {
   background: rgba(16, 37, 66, 0.55);
-
   backdrop-filter: blur(18px);
-
   border-bottom: 1px solid rgba(255,255,255,.08);
 }
 
 .logo {
   color: #f8f9fa;
-
   text-decoration: none;
-
   font-size: 28px;
-
   font-weight: 900;
-
   letter-spacing: 3px;
-
   font-family: "Bebas Neue", sans-serif;
 }
 
 .nav-links {
   display: flex;
-  gap: 36px;
+  align-items: center;
+  gap: 24px; /* كان 36 */
 }
 
 .nav-links a {
   color: rgba(248,249,250,.88);
-
   text-decoration: none;
-
-  font-size: 13px;
-
+  font-size: 12px; /* كان 13 */
   font-weight: 800;
-
-  letter-spacing: 2px;
-
+  letter-spacing: 1.5px;
   text-transform: uppercase;
-
   transition: .3s ease;
+  white-space: nowrap;
 }
 
 .nav-links a:hover {
   color: #e67e22;
-
   transform: translateY(-2px);
 }
 
 .book-btn {
   color: #102542;
-
   background: #e67e22;
 
-  text-decoration: none;
+  border: none;
+  cursor: pointer;
 
   padding: 12px 26px;
-
   border-radius: 999px;
 
   font-size: 13px;
-
   font-weight: 900;
-
   letter-spacing: 1px;
 
   transition: .3s ease;
@@ -90,23 +75,26 @@
 
 .book-btn:hover {
   transform: translateY(-3px);
-
   background: #f8f9fa;
-
   color: #102542;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
+  .header {
+    padding: 20px 35px;
+  }
+
   .nav-links {
-    gap: 20px;
+    gap: 16px;
   }
 
   .nav-links a {
     font-size: 11px;
+    letter-spacing: 1px;
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 950px) {
   .nav-links {
     display: none;
   }
