@@ -47,7 +47,7 @@ const BottomTicker = () => {
 
         <div className="ticker-item">
           <FaMapMarkerAlt />
-          <span>LOCATION: AL-RAYYAN, QATAR</span>
+          <span>LOCATION: THE PEARL, QATAR</span>
         </div>
 
         <div className="ticker-item">
@@ -68,7 +68,7 @@ const BottomTicker = () => {
         {/* نسخة ثانية للحركة اللانهائية */}
         <div className="ticker-item">
           <FaMapMarkerAlt />
-          <span>LOCATION: AL-RAYYAN, QATAR</span>
+          <span>LOCATION: THE PEARL, QATAR</span>
         </div>
 
         <div className="ticker-item">
